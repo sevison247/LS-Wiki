@@ -145,6 +145,8 @@ Error message and password prompt
 
 <li>$:/core</li>
 
+<li>$:/core/ui/DefaultSearchResultList</li>
+
 <li>$:/GitHub/Filename</li>
 
 <li>$:/GitHub/Path</li>
@@ -183,7 +185,11 @@ Error message and password prompt
 
 <li>Draft of '$:/core/ui/Buttons/new-journal' by Sean</li>
 
+<li>Draft of '$:/core/ui/SearchResults' by Sean</li>
+
 <li>Draft of '$:/core/ui/SideBarSegments/search' by Sean</li>
+
+<li>Draft of 'InventoryTemplate 1' by Sean</li>
 
 <li>Field</li>
 
@@ -9403,6 +9409,20 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div caption="{{$:/language/Search/DefaultResults/Caption}}" created="20200404213534556" creator="Sean" modified="20200404213542645" modifier="Sean" tags="$:/tags/SearchResults" title="$:/core/ui/DefaultSearchResultList">
+<pre>\define searchResultList()
+//&lt;small&gt;{{$:/language/Search/Matches/Title}}&lt;/small&gt;//
+
+&lt;$list filter=&quot;[!is[system]serial{$(searchTiddler)$}search:title{$(searchTiddler)$}sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+
+//&lt;small&gt;{{$:/language/Search/Matches/All}}&lt;/small&gt;//
+
+&lt;$list filter=&quot;[!is[system]search{$(searchTiddler)$}sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+
+\end
+&lt;&lt;searchResultList&gt;&gt;
+</pre>
+</div>
 <div created="20200404192927185" modified="20200404192928895" title="$:/GitHub/Filename">
 <pre>wiki.html</pre>
 </div>
@@ -9439,11 +9459,11 @@ Error message and password prompt
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div created="20200404202351428" creator="Sean" list="[[InventoryTemplate 1]] InventoryTemplate Field [[Field Search]] Test $:/AdvancedSearch [[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/config/Search/AutoFocus $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404212116963" modifier="Sean" title="$:/StoryList">
+<div created="20200404202351428" creator="Sean" list="[[Draft of 'InventoryTemplate 1' by Sean]] InventoryTemplate Field [[Field Search]] Test $:/AdvancedSearch $:/core/ui/SearchResults $:/core/ui/DefaultSearchResultList [[Draft of '$:/core/ui/SearchResults' by Sean]] [[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/config/Search/AutoFocus $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404213501983" modifier="Sean" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20200404202359897" creator="Sean" fieldname="serial" modified="20200404212937121" modifier="Sean" title="$:/temp/advancedsearch">
-<pre>10095255</pre>
+<div created="20200404202359897" creator="Sean" fieldname="serial" modified="20200404213454470" modifier="Sean" title="$:/temp/advancedsearch">
+<pre>$:/tags/SearchResults</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -9503,8 +9523,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" creator="Sean" modified="20200404212920228" modifier="Sean" title="$:/temp/search">
-<pre>10095255</pre>
+<div created="20200404200949721" creator="Sean" modified="20200404213454470" modifier="Sean" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
 <pre>{
@@ -9629,6 +9649,22 @@ Error message and password prompt
 &lt;&lt;journalButton&gt;&gt;
 </pre>
 </div>
+<div draft.of="$:/core/ui/SearchResults" draft.title="$:/core/ui/SearchResults" modified="20200404213417524" modifier="Sean" title="Draft of '$:/core/ui/SearchResults' by Sean">
+<pre>&lt;div class=&quot;tc-search-results&quot;&gt;
+
+&lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/SearchResults]!has[draft.of]butfirst[]limit[1]]&quot; emptyMessage=&quot;&quot;&quot;
+&lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/SearchResults]!has[draft.of]]&quot;&gt;
+&lt;$transclude mode=&quot;block&quot;/&gt;
+&lt;/$list&gt;
+&quot;&quot;&quot;&gt;
+
+&lt;$macrocall $name=&quot;tabs&quot; tabsList=&quot;[all[shadows+tiddlers]tag[$:/tags/SearchResults]!has[draft.of]]&quot; default={{$:/config/SearchResults/Default}}/&gt;
+
+&lt;/$list&gt;
+
+&lt;/div&gt;
+</pre>
+</div>
 <div draft.of="$:/core/ui/SideBarSegments/search" draft.title="$:/core/ui/SideBarSegments/search" modified="20200404212121013" modifier="Sean" tags="$:/tags/SideBarSegment" title="Draft of '$:/core/ui/SideBarSegments/search' by Sean">
 <pre>&lt;div class=&quot;tc-sidebar-lists tc-sidebar-search&quot;&gt;
 
@@ -9682,6 +9718,9 @@ Error message and password prompt
 
 &lt;/div&gt;
 </pre>
+</div>
+<div brand="evison" created="20200404212906839" creator="Sean" draft.of="InventoryTemplate 1" draft.title="InventoryTemplate 1" model="Sean" modified="20200404213055169" modifier="Sean" serial="10095255" tags="" title="Draft of 'InventoryTemplate 1' by Sean">
+<pre>{{!!serial}}</pre>
 </div>
 <div created="20200404212342964" creator="Sean" modified="20200404212833435" modifier="Sean" tags="$:/tags/Search" title="Field">
 <pre>\define searchInField(field, for)
