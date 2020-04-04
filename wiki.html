@@ -187,8 +187,6 @@ Error message and password prompt
 
 <li>Draft of '$:/core/ui/Buttons/new-journal' by Sean</li>
 
-<li>Draft of '$:/core/ui/DefaultSearchResultList' by Sean</li>
-
 <li>Draft of '$:/core/ui/SideBarSegments/search' by Sean</li>
 
 <li>Draft of 'InventoryTemplate 1' by Sean</li>
@@ -9411,15 +9409,16 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div caption="{{$:/language/Search/DefaultResults/Caption}}" created="20200404213534556" creator="Sean" modified="20200404213642277" modifier="Sean" tags="$:/tags/SearchResults" title="$:/core/ui/DefaultSearchResultList">
+<div caption="{{$:/language/Search/DefaultResults/Caption}}" created="20200404213534556" creator="Sean" modified="20200404214151553" modifier="Sean" tags="$:/tags/SearchResults" title="$:/core/ui/DefaultSearchResultList">
 <pre>\define searchResultList()
 //&lt;small&gt;{{$:/language/Search/Matches/Title}}&lt;/small&gt;//
 
-&lt;$list filter=&quot;[!is[system]serial{$(searchTiddler)$}search:title{$(searchTiddler)$}sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+&lt;$list filter=&quot;[!is[system]search:title{$(searchTiddler)$}sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
 
 //&lt;small&gt;{{$:/language/Search/Matches/All}}&lt;/small&gt;//
 
 &lt;$list filter=&quot;[!is[system]search{$(searchTiddler)$}sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+&lt;$list filter=&quot;[!is[system][field[{$(searchTiddler)$}]]sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
 
 \end
 &lt;&lt;searchResultList&gt;&gt;
@@ -9478,7 +9477,7 @@ Error message and password prompt
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div created="20200404202351428" creator="Sean" list="$:/ControlPanel [[Draft of 'InventoryTemplate 1' by Sean]] InventoryTemplate Field [[Field Search]] Test $:/AdvancedSearch $:/language/Buttons/SidebarSearch/Hint $:/language/Search/Search $:/temp/search $:/config/SearchResults/Default $:/core/ui/SearchResults [[Draft of '$:/core/ui/DefaultSearchResultList' by Sean]] [[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/config/Search/AutoFocus $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404213931908" modifier="Sean" title="$:/StoryList">
+<div created="20200404202351428" creator="Sean" list="$:/ControlPanel [[Draft of 'InventoryTemplate 1' by Sean]] InventoryTemplate Field [[Field Search]] Test $:/AdvancedSearch $:/language/Buttons/SidebarSearch/Hint $:/language/Search/Search $:/temp/search $:/config/SearchResults/Default $:/core/ui/SearchResults $:/core/ui/DefaultSearchResultList [[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/config/Search/AutoFocus $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404213931908" modifier="Sean" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200404202359897" creator="Sean" fieldname="serial" modified="20200404213831772" modifier="Sean" title="$:/temp/advancedsearch">
@@ -9542,8 +9541,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" creator="Sean" modified="20200404213831772" modifier="Sean" title="$:/temp/search">
-<pre></pre>
+<div created="20200404200949721" creator="Sean" modified="20200404214148225" modifier="Sean" title="$:/temp/search">
+<pre>10095255</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
 <pre>{
@@ -9666,20 +9665,6 @@ Error message and password prompt
 &lt;/$button&gt;
 \end
 &lt;&lt;journalButton&gt;&gt;
-</pre>
-</div>
-<div caption="{{$:/language/Search/DefaultResults/Caption}}" created="20200404213534556" creator="Sean" draft.of="$:/core/ui/DefaultSearchResultList" draft.title="$:/core/ui/DefaultSearchResultList" modified="20200404213806621" modifier="Sean" tags="$:/tags/SearchResults" title="Draft of '$:/core/ui/DefaultSearchResultList' by Sean">
-<pre>\define searchResultList()
-//&lt;small&gt;{{$:/language/Search/Matches/Title}}&lt;/small&gt;//
-
-&lt;$list filter=&quot;[!is[system]search:title{$(searchTiddler)$}sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
-
-//&lt;small&gt;{{$:/language/Search/Matches/All}}&lt;/small&gt;//
-
-&lt;$list filter=&quot;[!is[system]search{$(searchTiddler)$}sort[title]limit[250]]&quot; template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
-
-\end
-&lt;&lt;searchResultList&gt;&gt;
 </pre>
 </div>
 <div draft.of="$:/core/ui/SideBarSegments/search" draft.title="$:/core/ui/SideBarSegments/search" modified="20200404212121013" modifier="Sean" tags="$:/tags/SideBarSegment" title="Draft of '$:/core/ui/SideBarSegments/search' by Sean">
