@@ -181,9 +181,9 @@ Error message and password prompt
 
 <li>Draft of '$:/core/ui/Buttons/new-journal' by Sean</li>
 
-<li>Field Search</li>
+<li>Draft of 'Field Search' by Sean</li>
 
-<li>InventoryTemplate</li>
+<li>Field Search</li>
 
 <li>TEST</li>
 
@@ -9407,8 +9407,8 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div created="20200404202411385" creator="Sean" modified="20200404210653434" modifier="Sean" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+<div created="20200404202411385" creator="Sean" modified="20200404211542127" modifier="Sean" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
 <div created="20200404191042038" modified="20200404201011962" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
@@ -9428,11 +9428,11 @@ Error message and password prompt
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div created="20200404202351428" creator="Sean" list="[[Field Search]] InventoryTemplate Test $:/AdvancedSearch $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404210710160" modifier="Sean" title="$:/StoryList">
+<div created="20200404202351428" creator="Sean" list="[[Draft of 'Field Search' by Sean]] Test $:/AdvancedSearch $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404210710160" modifier="Sean" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20200404202359897" creator="Sean" modified="20200404210648692" modifier="Sean" title="$:/temp/advancedsearch">
-<pre>search</pre>
+<div created="20200404202359897" creator="Sean" modified="20200404211626723" modifier="Sean" title="$:/temp/advancedsearch">
+<pre>[serial[10095255]]</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -9492,8 +9492,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" creator="Sean" modified="20200404211023974" modifier="Sean" title="$:/temp/search">
-<pre>[test]</pre>
+<div created="20200404200949721" creator="Sean" modified="20200404211636196" modifier="Sean" title="$:/temp/search">
+<pre>[serial[10095255]]</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
 <pre>{
@@ -9618,7 +9618,7 @@ Error message and password prompt
 &lt;&lt;journalButton&gt;&gt;
 </pre>
 </div>
-<div created="20200404211324834" creator="Sean" modified="20200404211331445" modifier="Sean" tags="" title="Field Search">
+<div created="20200404211324834" creator="Sean" draft.of="Field Search" draft.title="Field Search" modified="20200404211340512" modifier="Sean" tags="" title="Draft of 'Field Search' by Sean">
 <pre>\define searchInField(field, for)
 &lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;$field$: 
 &lt;ul&gt;&lt;li&gt;&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt; &lt;/li&gt;&lt;/ul&gt;&lt;/$list&gt;
@@ -9630,8 +9630,17 @@ Error message and password prompt
 &lt;/$list&gt;
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20200404204936873" creator="Sean" model="test" modified="20200404210232411" modifier="Sean" serial="10095255" tags="" title="InventoryTemplate">
-<pre>{{!!model}}</pre>
+<div created="20200404211324834" creator="Sean" modified="20200404211331445" modifier="Sean" tags="" title="Field Search">
+<pre>\define searchInField(field, for)
+&lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;$field$: 
+&lt;ul&gt;&lt;li&gt;&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt; &lt;/li&gt;&lt;/ul&gt;&lt;/$list&gt;
+\end
+&lt;$reveal state=&quot;$:/temp/advancedsearch&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+
+&lt;$list filter=&quot;[!is[shadow]!is[system]fields[]] -title -text -tags&quot; variable=&quot;fieldname&quot;&gt;
+&lt;$macrocall $name=&quot;searchInField&quot; field=&lt;&lt;fieldname&gt;&gt; for={{$:/temp/advancedsearch}}/&gt; 
+&lt;/$list&gt;
+&lt;/$reveal&gt;</pre>
 </div>
 <div created="20200404193421991" modified="20200404193425896" tags="" title="TEST">
 <pre></pre>
