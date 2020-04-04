@@ -181,6 +181,8 @@ Error message and password prompt
 
 <li>Draft of '$:/core/ui/Buttons/new-journal' by Sean</li>
 
+<li>Draft of '$:/core/ui/SideBarSegments/search' by Sean</li>
+
 <li>Draft of 'Field Search' by Sean</li>
 
 <li>Field Search</li>
@@ -188,6 +190,8 @@ Error message and password prompt
 <li>TEST</li>
 
 <li>Test</li>
+
+<li>test</li>
 
 </ul>
 </p>
@@ -9407,8 +9411,8 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div created="20200404202411385" creator="Sean" modified="20200404211542127" modifier="Sean" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Filter</pre>
+<div created="20200404202411385" creator="Sean" modified="20200404212055572" modifier="Sean" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20200404191042038" modified="20200404201011962" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
@@ -9428,11 +9432,11 @@ Error message and password prompt
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div created="20200404202351428" creator="Sean" list="[[Draft of 'Field Search' by Sean]] Test $:/AdvancedSearch $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404210710160" modifier="Sean" title="$:/StoryList">
+<div created="20200404202351428" creator="Sean" list="test [[Draft of 'Field Search' by Sean]] Test $:/AdvancedSearch [[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/config/Search/AutoFocus $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404212116963" modifier="Sean" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20200404202359897" creator="Sean" modified="20200404211626723" modifier="Sean" title="$:/temp/advancedsearch">
-<pre>[serial[10095255]]</pre>
+<div created="20200404202359897" creator="Sean" modified="20200404212051129" modifier="Sean" title="$:/temp/advancedsearch">
+<pre>search</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -9492,8 +9496,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" creator="Sean" modified="20200404211636196" modifier="Sean" title="$:/temp/search">
-<pre>[serial[10095255]]</pre>
+<div created="20200404200949721" creator="Sean" modified="20200404212051129" modifier="Sean" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
 <pre>{
@@ -9618,6 +9622,60 @@ Error message and password prompt
 &lt;&lt;journalButton&gt;&gt;
 </pre>
 </div>
+<div draft.of="$:/core/ui/SideBarSegments/search" draft.title="$:/core/ui/SideBarSegments/search" modified="20200404212121013" modifier="Sean" tags="$:/tags/SideBarSegment" title="Draft of '$:/core/ui/SideBarSegments/search' by Sean">
+<pre>&lt;div class=&quot;tc-sidebar-lists tc-sidebar-search&quot;&gt;
+
+&lt;$set name=&quot;searchTiddler&quot; value=&quot;$:/temp/search&quot;&gt;
+&lt;div class=&quot;tc-search&quot;&gt;
+&lt;$edit-text tiddler=&quot;$:/temp/search&quot; type=&quot;search&quot; tag=&quot;input&quot; focus={{$:/config/Search/AutoFocus}} focusPopup=&lt;&lt;qualify &quot;$:/state/popup/search-dropdown&quot;&gt;&gt; class=&quot;tc-popup-handle&quot;/&gt;
+&lt;$reveal state=&quot;$:/temp/search&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+&lt;$button tooltip={{$:/language/Buttons/AdvancedSearch/Hint}} aria-label={{$:/language/Buttons/AdvancedSearch/Caption}} class=&quot;tc-btn-invisible&quot;&gt;
+&lt;$action-setfield $tiddler=&quot;$:/temp/advancedsearch&quot; text={{$:/temp/search}}/&gt;
+&lt;$action-setfield $tiddler=&quot;$:/temp/search&quot; text=&quot;&quot;/&gt;
+&lt;$action-navigate $to=&quot;$:/AdvancedSearch&quot;/&gt;
+{{$:/core/images/advanced-search-button}}
+&lt;/$button&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+&lt;$action-setfield $tiddler=&quot;$:/temp/search&quot; text=&quot;&quot; /&gt;
+{{$:/core/images/close-button}}
+&lt;/$button&gt;
+&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/search-dropdown&quot;&gt;&gt; class=&quot;tc-btn-invisible&quot;&gt;
+{{$:/core/images/down-arrow}}
+&lt;$list filter=&quot;[{$:/temp/search}minlength{$:/config/Search/MinLength}limit[1]]&quot; variable=&quot;listItem&quot;&gt;
+&lt;$set name=&quot;searchTerm&quot; value={{{ [&lt;searchTiddler&gt;get[text]] }}}&gt;
+&lt;$set name=&quot;resultCount&quot; value=&quot;&quot;&quot;&lt;$count filter=&quot;[!is[system]search&lt;searchTerm&gt;]&quot;/&gt;&quot;&quot;&quot;&gt;
+{{$:/language/Search/Matches}}
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/temp/search&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+&lt;$button to=&quot;$:/AdvancedSearch&quot; tooltip={{$:/language/Buttons/AdvancedSearch/Hint}} aria-label={{$:/language/Buttons/AdvancedSearch/Caption}} class=&quot;tc-btn-invisible&quot;&gt;
+{{$:/core/images/advanced-search-button}}
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;/div&gt;
+
+&lt;$reveal tag=&quot;div&quot; class=&quot;tc-block-dropdown-wrapper&quot; state=&quot;$:/temp/search&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+
+&lt;$reveal tag=&quot;div&quot; class=&quot;tc-block-dropdown tc-search-drop-down tc-popup-handle&quot; state=&lt;&lt;qualify &quot;$:/state/popup/search-dropdown&quot;&gt;&gt; type=&quot;nomatch&quot; text=&quot;&quot; default=&quot;&quot;&gt;
+
+&lt;$list filter=&quot;[{$:/temp/search}minlength{$:/config/Search/MinLength}limit[1]]&quot; emptyMessage=&quot;&quot;&quot;&lt;div class=&quot;tc-search-results&quot;&gt;{{$:/language/Search/Search/TooShort}}&lt;/div&gt;&quot;&quot;&quot; variable=&quot;listItem&quot;&gt;
+
+{{$:/core/ui/SearchResults}}
+
+&lt;/$list&gt;
+
+&lt;/$reveal&gt;
+
+&lt;/$reveal&gt;
+
+&lt;/$set&gt;
+
+&lt;/div&gt;
+</pre>
+</div>
 <div created="20200404211324834" creator="Sean" draft.of="Field Search" draft.title="Field Search" modified="20200404211340512" modifier="Sean" tags="" title="Draft of 'Field Search' by Sean">
 <pre>\define searchInField(field, for)
 &lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;$field$: 
@@ -9647,6 +9705,18 @@ Error message and password prompt
 </div>
 <div created="20200404204756071" creator="Sean" modified="20200404210200346" modifier="Sean" tags="$:/tags/SideBar" title="Test">
 <pre>&lt;$button message=&quot;tm-new-tiddler&quot; param=&quot;InventoryTemplate&quot;&gt;New Inventory Item&lt;/$button&gt;</pre>
+</div>
+<div created="20200404212342964" creator="Sean" modified="20200404212359246" modifier="Sean" tags="" title="test">
+<pre>\define searchInField(field, for)
+&lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;$field$: 
+&lt;ul&gt;&lt;li&gt;&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt; &lt;/li&gt;&lt;/ul&gt;&lt;/$list&gt;
+\end
+&lt;$reveal state=&quot;$:/temp/advancedsearch&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+
+&lt;$list filter=&quot;[!is[shadow]!is[system]fields[]] -title -text -tags&quot; variable=&quot;fieldname&quot;&gt;
+&lt;$macrocall $name=&quot;searchInField&quot; field=&lt;&lt;fieldname&gt;&gt; for={{$:/temp/search}}/&gt; 
+&lt;/$list&gt;
+&lt;/$reveal&gt;</pre>
 </div>
 
 </div>
