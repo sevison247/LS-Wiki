@@ -143,8 +143,6 @@ Error message and password prompt
 
 <li>$:/core</li>
 
-<li>$:/DefaultTiddlers</li>
-
 <li>$:/GitHub/Filename</li>
 
 <li>$:/GitHub/Path</li>
@@ -154,6 +152,8 @@ Error message and password prompt
 <li>$:/GitHub/Username</li>
 
 <li>$:/isEncrypted</li>
+
+<li>$:/state/tab--1498284803</li>
 
 <li>$:/state/tab--2112689675</li>
 
@@ -169,6 +169,8 @@ Error message and password prompt
 
 <li>$:/StoryList</li>
 
+<li>$:/temp/advancedsearch</li>
+
 <li>$:/temp/info-plugin</li>
 
 <li>$:/temp/search</li>
@@ -177,7 +179,11 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Draft of '$:/core/ui/Buttons/new-journal' by Sean</li>
+
 <li>TEST</li>
+
+<li>Test</li>
 
 </ul>
 </p>
@@ -9382,9 +9388,6 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404202223113" creator="Sean" modified="20200404202226785" modifier="Sean" title="$:/DefaultTiddlers">
-<pre></pre>
-</div>
 <div created="20200404192927185" modified="20200404192928895" title="$:/GitHub/Filename">
 <pre>wiki.html</pre>
 </div>
@@ -9400,26 +9403,32 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
+<div created="20200404202411385" creator="Sean" modified="20200404204715061" modifier="Sean" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+</div>
 <div created="20200404191042038" modified="20200404201011962" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
 <div created="20200404191043904" modified="20200404201006926" title="$:/state/tab--959111941">
 <pre>$:/core/ui/ControlPanel/TiddlerFields</pre>
 </div>
-<div created="20200404191046236" creator="Sean" modified="20200404201807768" modifier="Sean" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Saving</pre>
+<div created="20200404191046236" modified="20200404201001892" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div created="20200404191057979" creator="Sean" modified="20200404202245686" modifier="Sean" title="$:/state/tab-2065006209">
+<div created="20200404191057979" modified="20200404193635417" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200404191035645" creator="Sean" modified="20200404202300797" modifier="Sean" title="$:/state/tab/sidebar--595412856">
+<div created="20200404191035645" creator="Sean" modified="20200404204704138" modifier="Sean" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div created="20200404201714090" creator="Sean" list="" modified="20200404202242820" modifier="Sean" title="$:/StoryList">
+<div created="20200404202351428" creator="Sean" list="Test $:/AdvancedSearch $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404204747986" modifier="Sean" title="$:/StoryList">
 <pre></pre>
+</div>
+<div created="20200404202359897" creator="Sean" modified="20200404204726588" modifier="Sean" title="$:/temp/advancedsearch">
+<pre>tools</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -9479,7 +9488,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" modified="20200404200951928" title="$:/temp/search">
+<div created="20200404200949721" creator="Sean" modified="20200404204707793" modifier="Sean" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
@@ -9591,7 +9600,24 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div caption="{{$:/core/images/new-journal-button}} {{$:/language/Buttons/NewJournal/Caption}}" description="{{$:/language/Buttons/NewJournal/Hint}}" draft.of="$:/core/ui/Buttons/new-journal" draft.title="$:/core/ui/Buttons/new-journal" modified="20200404202526079" modifier="Sean" tags="$:/tags/PageControls" title="Draft of '$:/core/ui/Buttons/new-journal' by Sean">
+<pre>\define journalButton()
+&lt;$button tooltip={{$:/language/Buttons/NewJournal/Hint}} aria-label={{$:/language/Buttons/NewJournal/Caption}} class=&lt;&lt;tv-config-toolbar-class&gt;&gt; actions={{$:/core/ui/Actions/new-journal}}&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
+{{$:/core/images/new-journal-button}}
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;&lt;$text text={{$:/language/Buttons/NewJournal/Caption}}/&gt;&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;
+\end
+&lt;&lt;journalButton&gt;&gt;
+</pre>
+</div>
 <div created="20200404193421991" modified="20200404193425896" tags="" title="TEST">
+<pre></pre>
+</div>
+<div created="20200404204756071" creator="Sean" modified="20200404204815564" modifier="Sean" tags="$:/tags/SideBar" title="Test">
 <pre></pre>
 </div>
 
