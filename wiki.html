@@ -141,6 +141,8 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/RelinkOnRename</li>
+
 <li>$:/core</li>
 
 <li>$:/GitHub/Filename</li>
@@ -183,13 +185,13 @@ Error message and password prompt
 
 <li>Draft of '$:/core/ui/SideBarSegments/search' by Sean</li>
 
+<li>Field</li>
+
 <li>Field Search</li>
 
 <li>TEST</li>
 
 <li>Test</li>
-
-<li>test</li>
 
 </ul>
 </p>
@@ -201,6 +203,9 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20200404212743633" creator="Sean" modified="20200404212743633" modifier="Sean" title="$:/config/RelinkOnRename">
+<pre>yes</pre>
+</div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.21">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -9430,7 +9435,7 @@ Error message and password prompt
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div created="20200404202351428" creator="Sean" list="test [[Field Search]] Test $:/AdvancedSearch [[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/config/Search/AutoFocus $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404212116963" modifier="Sean" title="$:/StoryList">
+<div created="20200404202351428" creator="Sean" list="Field [[Field Search]] Test $:/AdvancedSearch [[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/config/Search/AutoFocus $:/core/modules/filters/search.js $:/config/ShortcutInfo/sidebar-search $:/core/ui/SideBar/Tools $:/tags/SideBar [[Draft of '$:/core/ui/Buttons/new-journal' by Sean]] $:/config/NewJournal/Text $:/config/NewJournal/Tags $:/core $:/Manager GettingStarted" modified="20200404212116963" modifier="Sean" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200404202359897" creator="Sean" modified="20200404212051129" modifier="Sean" title="$:/temp/advancedsearch">
@@ -9494,8 +9499,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" creator="Sean" modified="20200404212723924" modifier="Sean" title="$:/temp/search">
-<pre></pre>
+<div created="20200404200949721" creator="Sean" modified="20200404212757375" modifier="Sean" title="$:/temp/search">
+<pre>asd</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
 <pre>{
@@ -9674,6 +9679,48 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
+<div created="20200404212342964" creator="Sean" modified="20200404212833435" modifier="Sean" tags="$:/tags/Search" title="Field">
+<pre>\define searchInField(field, for)
+
+&lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;
+
+&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;
+
+&lt;
+/$list&gt;
+
+\end
+
+
+&lt;$edit-text tiddler=&quot;$:/temp/advancedsearch&quot; type=&quot;search&quot; tag=&quot;input&quot;/&gt; &lt;$select field=&quot;fieldname&quot; tiddler=&quot;$:/temp/advancedsearch&quot;&gt;
+&lt;option value=&quot;Any&quot;&gt;Any&lt;/option&gt;
+&lt;$list filter=&quot;[!is[shadow]!is[system]fields[]sort[]]&quot; variable=&quot;fieldname&quot;&gt;
+&lt;option value=&lt;&lt;fieldname&gt;&gt;&gt;&lt;&lt;fieldname&gt;&gt;&lt;/option&gt;
+&lt;/$list&gt;
+&lt;/$select&gt;
+
+&lt;$reveal state=&quot;$:/temp/advancedsearch&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+&lt;$reveal state=&quot;$:/temp/advancedsearch!!fieldname&quot; type=&quot;match&quot; text=&quot;Any&quot;&gt;
+&lt;$list filter=&quot;[!is[shadow]!is[system]fields[]]&quot; variable=&quot;fieldname&quot;&gt;
+
+
+Searching in field: &lt;&lt;fieldname&gt;&gt;
+
+&lt;$macrocall $name=&quot;searchInField&quot; field=&lt;&lt;fieldname&gt;&gt; for={{$:/temp/advancedsearch}}/&gt;
+
+&lt;/$list&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/temp/advancedsearch!!fieldname&quot; type=&quot;nomatch&quot; text=&quot;Any&quot;&gt;
+
+Searching in field: {{$:/temp/advancedsearch!!fieldname}}
+
+&lt;$macrocall $name=&quot;searchInField&quot; field={{$:/temp/advancedsearch!!fieldname}} for={{$:/temp/advancedsearch}}/&gt;
+
+&lt;/$reveal&gt;
+
+&lt;/$reveal&gt;
+</pre>
+</div>
 <div created="20200404211324834" creator="Sean" modified="20200404212410552" modifier="Sean" tags="" title="Field Search">
 <pre>\define searchInField(field, for)
 &lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;$field$: 
@@ -9691,18 +9738,6 @@ Error message and password prompt
 </div>
 <div created="20200404204756071" creator="Sean" modified="20200404210200346" modifier="Sean" tags="$:/tags/SideBar" title="Test">
 <pre>&lt;$button message=&quot;tm-new-tiddler&quot; param=&quot;InventoryTemplate&quot;&gt;New Inventory Item&lt;/$button&gt;</pre>
-</div>
-<div created="20200404212342964" creator="Sean" modified="20200404212732218" modifier="Sean" tags="$:/tags/Search" title="test">
-<pre>\define searchInField(field, for)
-&lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;$field$: 
-&lt;ul&gt;&lt;li&gt;&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt; &lt;/li&gt;&lt;/ul&gt;&lt;/$list&gt;
-\end
-&lt;$reveal state=&quot;$:/temp/search&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
-
-&lt;$list filter=&quot;[!is[shadow]!is[system]fields[]] -title -text -tags&quot; variable=&quot;fieldname&quot;&gt;
-&lt;$macrocall $name=&quot;searchInField&quot; field=&lt;&lt;fieldname&gt;&gt; for={{$:/temp/search}}/&gt; 
-&lt;/$list&gt;
-&lt;/$reveal&gt;</pre>
 </div>
 
 </div>
