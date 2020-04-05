@@ -9867,8 +9867,29 @@ Searching in field: {{$:/temp/advancedsearch!!fieldname}}
   jsbarcode-fontoptions=&quot;bold&quot;&gt;
 &lt;/svg&gt;</pre>
 </div>
-<div asdf="10095255" created="20200404222911422" creator="Sean" modified="20200404223223753" modifier="Sean" tags="" title="New Tiddler 1">
-<pre>[img[https://barcode.tec-it.com/barcode.ashx?data={{!!asdf}}&amp;code=MobileQRUrl&amp;dpi=96&amp;dataseparator=]]</pre>
+<div asdf="10095255" created="20200404222911422" creator="Sean" modified="20200405012255509" modifier="Sean" serial="10095255" tags="" title="New Tiddler 1">
+<pre>\define getAddress()
+https://barcode.tec-it.com/barcode.ashx?data=$(serial)$.php
+\end
+
+&lt;$set name=serial value={{!!serial}}&gt;
+[img[&lt;&lt;getAddress&gt;&gt;]]
+&lt;a href=&lt;&lt;getAddress&gt;&gt; target=&quot;_blank&quot;&gt;go to page {{!!test_field}}&lt;/a&gt;
+&lt;/$set&gt;
+
+&lt;$set name=&quot;&quot; field=&quot;asdf&quot;&gt;
+[img[https://barcode.tec-it.com/barcode.ashx?data=&lt;&lt;asdf&gt;&gt;]]
+&lt;/$set&gt;
+
+&lt;$set name=&quot;myVariable&quot; field={{$:/currentField}}&gt;
+&lt;$text text=&lt;&lt;myVariable&gt;&gt;/&gt;
+&lt;/$set&gt;
+
+[img &lt;&lt;animal&gt;&gt;
+&lt;&lt;animal&gt;&gt;
+&lt;&lt;animal&gt;&gt;
+https://barcode.tec-it.com/barcode.ashx?data=1234]
+</pre>
 </div>
 <div created="20200404193421991" modified="20200404193425896" tags="" title="TEST">
 <pre></pre>
