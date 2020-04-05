@@ -141,6 +141,8 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/_TWaddle/TiddlerSidebar</li>
+
 <li>$:/config/RelinkOnRename</li>
 
 <li>$:/core</li>
@@ -157,11 +159,9 @@ Error message and password prompt
 
 <li>$:/GitHub/Username</li>
 
+<li>$:/Import</li>
+
 <li>$:/isEncrypted</li>
-
-<li>$:/state/image-picker/system--1094389438</li>
-
-<li>$:/state/showeditpreview</li>
 
 <li>$:/state/tab--1498284803</li>
 
@@ -199,6 +199,8 @@ Error message and password prompt
 
 <li>Draft of 'InventoryTemplate 2' by Sean</li>
 
+<li>Draft of 'InventoryTemplate 3' by Sean</li>
+
 <li>Field</li>
 
 <li>Field Search</li>
@@ -208,8 +210,6 @@ Error message and password prompt
 <li>InventoryTemplate 1</li>
 
 <li>New Tiddler</li>
-
-<li>New Tiddler 1</li>
 
 <li>TEST</li>
 
@@ -225,6 +225,40 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20150708221317308" creator="Mat" list-before="$:/core/ui/ViewTemplate/tags" modified="20150725003800816" modifier="Mat" summary="Plugin-to-be. Popup-on-hover mini-sidebar&quot; showing tiddler specific user meta data" tags="$:/tags/ViewTemplate" title="$:/_TWaddle/TiddlerSidebar">
+<pre>\define tselement(tid,cur)
+{{$cur$||$tid$}}
+\end
+
+&lt;div id=&quot;ts_outer&quot;&gt;&lt;div id=&quot;ts_inner&quot;&gt;&lt;div class=&quot;tidsidebar&quot;&gt;
+   &lt;div class=&quot;ts_menu&quot;&gt;
+&lt;$set name=&quot;cur&quot; value=&lt;&lt;currentTiddler&gt;&gt;&gt;
+&lt;$list filter=&quot;[tag[$:/TiddlerSidebar]]&quot;&gt;
+       &lt;div class=&quot;ts_item&quot;&gt;&lt;div class=&quot;ts_tab&quot;&gt;{{!!title}}&lt;/div&gt;&lt;div class=&quot;ts_content&quot;&gt;&lt;$macrocall $name=tselement tid={{!!title}} cur=&lt;&lt;cur&gt;&gt;/&gt;
+                &lt;/div&gt;&lt;/div&gt;
+&lt;/$list&gt;&lt;/$set&gt;
+       &lt;div class=&quot;ts_item&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;✚&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;div class=&quot;ts_content&quot;&gt;
+            Clicking the ✚ should add a new category to the current
+             ~TiddlerSidebar . Not implemented yet.
+        &lt;/div&gt;&lt;/div&gt;
+   &lt;/div&gt; &lt;!-- closing of ts_menu ---&gt;
+   &lt;div class=&quot;ts_nomenu&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;style&gt;
+   #ts_outer { position: relative; }
+   #ts_inner { position: absolute; left: -40px;  top: 0px;}
+   .ts_nomenu  { display:block; position:absolute; width:42px; height:130px; top:-70px; z-index:9999;}
+   .ts_menu { display: none; position:absolute; z-index:10001; min-width:42px; }
+   .tidsidebar:hover .ts_menu{ display:block; background-color:white; } 
+   .ts_item {border: 1px solid lightgray; border-right:0; border-left:0; line-height:300%; padding-left:3px; color:gray; } 
+   .ts_content {display:none; position:absolute; }
+   .ts_item:hover {color:black;} 
+.ts_menu:hover .ts_content{z-index:10000;}
+   .ts_item:hover .ts_content{ display:inline-block; top:0px; border: 1px solid lightgray; border-left:0; padding:15px; background-color:white; font-size:90%; min-width:250px; min-height:100%; line-height:130%; font-weight:normal; color:black; box-shadow: 3px 3px 7px lightgray;}
+.ts_tab {min-width:20px; display:inline-block;}
+&lt;/style&gt;</pre>
+</div>
 <div created="20200404212743633" creator="Sean" modified="20200404212743633" modifier="Sean" title="$:/config/RelinkOnRename">
 <pre>yes</pre>
 </div>
@@ -9464,14 +9498,13 @@ Error message and password prompt
 <div created="20200404191124177" modified="20200404191125638" title="$:/GitHub/Username">
 <pre>sevison247</pre>
 </div>
+<div status="complete" title="$:/Import">
+<pre>The following tiddlers were imported:
+
+# [[$:/_TWaddle/TiddlerSidebar]]</pre>
+</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
-</div>
-<div created="20200404223146149" creator="Sean" modified="20200404223146149" modifier="Sean" title="$:/state/image-picker/system--1094389438">
-<pre>show</pre>
-</div>
-<div created="20200404223059371" creator="Sean" modified="20200404223059371" modifier="Sean" title="$:/state/showeditpreview">
-<pre>yes</pre>
 </div>
 <div created="20200404202411385" creator="Sean" modified="20200404212055572" modifier="Sean" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
@@ -9488,13 +9521,13 @@ Error message and password prompt
 <div created="20200404191057979" modified="20200404193635417" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200404191035645" creator="Sean" modified="20200404204818492" modifier="Sean" title="$:/state/tab/sidebar--595412856">
-<pre>Test</pre>
+<div created="20200404191035645" creator="Sean" modified="20200405021115225" modifier="Sean" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Tools</pre>
 </div>
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div list="[[New Tiddler 1]] GettingStarted" title="$:/StoryList">
+<div list="$:/Import [[Draft of 'InventoryTemplate 3' by Sean]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200404202359897" creator="Sean" fieldname="serial" modified="20200404213831772" modifier="Sean" title="$:/temp/advancedsearch">
@@ -9558,8 +9591,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" creator="Sean" modified="20200404222907783" modifier="Sean" title="$:/temp/search">
-<pre>10095255</pre>
+<div created="20200404200949721" creator="Sean" modified="20200405020136892" modifier="Sean" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
 <pre>{
@@ -9799,6 +9832,9 @@ Searching in field: {{$:/temp/advancedsearch!!fieldname}}
 <div brand="" created="20200404214612479" creator="Sean" draft.of="InventoryTemplate 2" draft.title="l" model="" modified="20200404214940345" modifier="Sean" serial="" tags="" title="Draft of 'InventoryTemplate 2' by Sean">
 <pre></pre>
 </div>
+<div brand="" created="20200405021042698" creator="Sean" draft.of="InventoryTemplate 3" draft.title="InventoryTemplate 3" model="" modified="20200405021042698" modifier="Sean" serial="" tags="" title="Draft of 'InventoryTemplate 3' by Sean">
+<pre></pre>
+</div>
 <div created="20200404212342964" creator="Sean" modified="20200404212833435" modifier="Sean" tags="$:/tags/Search" title="Field">
 <pre>\define searchInField(field, for)
 
@@ -9866,30 +9902,6 @@ Searching in field: {{$:/temp/advancedsearch!!fieldname}}
   jsbarcode-textmargin=&quot;0&quot;
   jsbarcode-fontoptions=&quot;bold&quot;&gt;
 &lt;/svg&gt;</pre>
-</div>
-<div asdf="10095255" created="20200404222911422" creator="Sean" modified="20200405012255509" modifier="Sean" serial="10095255" tags="" title="New Tiddler 1">
-<pre>\define getAddress()
-https://barcode.tec-it.com/barcode.ashx?data=$(serial)$.php
-\end
-
-&lt;$set name=serial value={{!!serial}}&gt;
-[img[&lt;&lt;getAddress&gt;&gt;]]
-&lt;a href=&lt;&lt;getAddress&gt;&gt; target=&quot;_blank&quot;&gt;go to page {{!!test_field}}&lt;/a&gt;
-&lt;/$set&gt;
-
-&lt;$set name=&quot;&quot; field=&quot;asdf&quot;&gt;
-[img[https://barcode.tec-it.com/barcode.ashx?data=&lt;&lt;asdf&gt;&gt;]]
-&lt;/$set&gt;
-
-&lt;$set name=&quot;myVariable&quot; field={{$:/currentField}}&gt;
-&lt;$text text=&lt;&lt;myVariable&gt;&gt;/&gt;
-&lt;/$set&gt;
-
-[img &lt;&lt;animal&gt;&gt;
-&lt;&lt;animal&gt;&gt;
-&lt;&lt;animal&gt;&gt;
-https://barcode.tec-it.com/barcode.ashx?data=1234]
-</pre>
 </div>
 <div created="20200404193421991" modified="20200404193425896" tags="" title="TEST">
 <pre></pre>
