@@ -173,6 +173,8 @@ Error message and password prompt
 
 <li>$:/state/tab-2065006209</li>
 
+<li>$:/state/tab/moresidebar-1850697562</li>
+
 <li>$:/state/tab/sidebar--595412856</li>
 
 <li>$:/status/UserName</li>
@@ -200,6 +202,8 @@ Error message and password prompt
 <li>Draft of 'InventoryTemplate 2' by Sean</li>
 
 <li>Draft of 'InventoryTemplate 3' by Sean</li>
+
+<li>evison</li>
 
 <li>Field</li>
 
@@ -9521,13 +9525,16 @@ Error message and password prompt
 <div created="20200404191057979" modified="20200404193635417" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200404191035645" creator="Sean" modified="20200405022453261" modifier="Sean" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20200405023549505" creator="Sean" modified="20200405023604089" modifier="Sean" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/Orphans</pre>
+</div>
+<div created="20200404191035645" creator="Sean" modified="20200405023547934" modifier="Sean" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
 </div>
 <div created="20200404201014102" creator="S" modified="20200404201014416" modifier="Sea" title="$:/status/UserName">
 <pre>Sean</pre>
 </div>
-<div created="20200405022455534" creator="Sean" list="$:/AdvancedSearch [[InventoryTemplate 1]] [[Field Search]] $:/Import [[Draft of 'InventoryTemplate 3' by Sean]]" modified="20200405023118112" modifier="Sean" title="$:/StoryList">
+<div created="20200405022455534" creator="Sean" list="[[Draft of '$:/core/ui/SideBarSegments/search' by Sean]] $:/AdvancedSearch [[InventoryTemplate 1]] [[Field Search]] $:/Import [[Draft of 'InventoryTemplate 3' by Sean]]" modified="20200405023654778" modifier="Sean" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200404202359897" creator="Sean" fieldname="serial" modified="20200405023116474" modifier="Sean" title="$:/temp/advancedsearch">
@@ -9591,8 +9598,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200404200949721" creator="Sean" modified="20200405023104177" modifier="Sean" title="$:/temp/search">
-<pre></pre>
+<div created="20200404200949721" creator="Sean" modified="20200405023653327" modifier="Sean" title="$:/temp/search">
+<pre>search text too short</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
 <pre>{
@@ -9733,7 +9740,7 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div draft.of="$:/core/ui/SideBarSegments/search" draft.title="$:/core/ui/SideBarSegments/search" modified="20200404212121013" modifier="Sean" tags="$:/tags/SideBarSegment" title="Draft of '$:/core/ui/SideBarSegments/search' by Sean">
+<div created="20200405023759067" creator="Sean" draft.of="$:/core/ui/SideBarSegments/search" draft.title="$:/core/ui/SideBarSegments/search" modified="20200405023807410" modifier="Sean" tags="$:/tags/SideBarSegment" title="Draft of '$:/core/ui/SideBarSegments/search' by Sean">
 <pre>&lt;div class=&quot;tc-sidebar-lists tc-sidebar-search&quot;&gt;
 
 &lt;$set name=&quot;searchTiddler&quot; value=&quot;$:/temp/search&quot;&gt;
@@ -9753,7 +9760,7 @@ Error message and password prompt
 &lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/search-dropdown&quot;&gt;&gt; class=&quot;tc-btn-invisible&quot;&gt;
 {{$:/core/images/down-arrow}}
 &lt;$list filter=&quot;[{$:/temp/search}minlength{$:/config/Search/MinLength}limit[1]]&quot; variable=&quot;listItem&quot;&gt;
-&lt;$set name=&quot;searchTerm&quot; value={{{ [&lt;searchTiddler&gt;get[text]] }}}&gt;
+&lt;$set name=&quot;searchTerm&quot; value={{{ [&lt;searchTiddler&gt;get[text]get[serial]] }}}&gt;
 &lt;$set name=&quot;resultCount&quot; value=&quot;&quot;&quot;&lt;$count filter=&quot;[!is[system]search&lt;searchTerm&gt;]&quot;/&gt;&quot;&quot;&quot;&gt;
 {{$:/language/Search/Matches}}
 &lt;/$set&gt;
@@ -9835,6 +9842,9 @@ Searching in field: {{$:/temp/advancedsearch!!fieldname}}
 <div brand="" created="20200405021042698" creator="Sean" draft.of="InventoryTemplate 3" draft.title="InventoryTemplate 3" model="" modified="20200405021042698" modifier="Sean" serial="" tags="" title="Draft of 'InventoryTemplate 3' by Sean">
 <pre></pre>
 </div>
+<div created="20200405023617116" creator="Sean" modified="20200405023625709" modifier="Sean" title="evison">
+<pre></pre>
+</div>
 <div created="20200404212342964" creator="Sean" modified="20200404212833435" modifier="Sean" tags="$:/tags/Search" title="Field">
 <pre>\define searchInField(field, for)
 
@@ -9892,10 +9902,10 @@ Searching in field: {{$:/temp/advancedsearch!!fieldname}}
 <div brand="" created="20200404212846393" creator="Sean" model="" modified="20200404212904503" modifier="Sean" serial="" tags="" title="InventoryTemplate">
 <pre></pre>
 </div>
-<div brand="evison" created="20200404212906839" creator="Sean" model="Sean" modified="20200405023528538" modifier="Sean" serial="10095255" tags="" title="InventoryTemplate 1">
+<div brand="evison" created="20200404212906839" creator="Sean" model="Sean" modified="20200405023536714" modifier="Sean" serial="10095255" tags="" title="InventoryTemplate 1">
 <pre>[[{{!!brand}}]] {{!!serial}} [[ {{!!brand}} ]]
 
-&lt;$link to=&quot;{{!!brand}}&quot;/&gt;</pre>
+&lt;$link to={{!!brand}}/&gt;</pre>
 </div>
 <div created="20200404222048239" creator="Sean" modified="20200404222616337" modifier="Sean" tags="" title="New Tiddler">
 <pre>&lt;svg class=&quot;barcode&quot;
